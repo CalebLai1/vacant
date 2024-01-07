@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Pomo from './pages/Pomo';
+import Note from './pages/Note';
+import ToDo from './pages/ToDo';
+import Flashcards from './pages/Flashcards';
+import Cite from './pages/Cite';
+import Quiz from './pages/Quiz';
+
+import TotallyAllServices from './pages/TotallyAllServices';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+        <Route index element={<App/>} />
+        <Route path="/Note" element={<Note/>} />
+        <Route path="/ToDo" element={<ToDo/>} />
+        <Route path="/Flashcards" element={<Flashcards/>} />
+        <Route path="/Quiz" element={<Quiz/>} />
+        <Route path="/Pomo" element={<Pomo/>} />
+        <Route path="/Cite" element={<Cite/>} />
+        <Route path="/TotallyAllServices" element={<TotallyAllServices/>} />
+    </Routes>
+  </BrowserRouter>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
